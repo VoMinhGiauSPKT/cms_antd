@@ -11,6 +11,7 @@ import { AppConstants, DEFAULT_TABLE_ITEM_SIZE } from '@constants';
 import { FieldTypes } from '@constants/formConfig';
 import { statusUserOptions } from '@constants/masterData';
 import { formatMoneyValue } from '@utils';
+import { Link } from "react-router-dom";
 
 const CourseListPage = ({ pageOptions }) => {
     const translate = useTranslate();
@@ -26,7 +27,7 @@ const CourseListPage = ({ pageOptions }) => {
     const columns = [
         {
             title: "#",
-            align: "cneter",
+            align: "center",
             width: 60,
             render: (text, record, index) => {
                 const { current = 1, pageSize = 10 } = pagination;
@@ -49,7 +50,14 @@ const CourseListPage = ({ pageOptions }) => {
         {
             title: "Tên khóa học",
             dataIndex: "name",
-            width: 800
+            width: 800,
+            render: (name, record) => (
+                <Link
+                    to={`/courses/${record.id}/syllabus`}
+                >
+                    {name}
+                </Link>
+            )
 
         },
         {

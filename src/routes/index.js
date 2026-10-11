@@ -11,6 +11,19 @@ import apiConfig from '@constants/apiConfig';
 import studentRoutes from '@modules/student/routes';
 import mentorRoutes from '@modules/mentor/routes';
 import courseRoutes from '@modules/course/routes';
+import classroomRoutes from '@modules/classroom/routes';
+import ratingRoutes from '@modules/rating/routes';
+import registrationRoutes from '@modules/registration/routes';
+import reportRoutes from '@modules/report/routes';
+import companyRoutes from '@modules/company/routes';
+import tagRoutes from '@modules/tag/routes';
+import sliderRoutes from '@modules/slider/routes';
+import deviceRoutes from '@modules/device/routes';
+
+
+
+
+
 
 
 /*
@@ -63,6 +76,14 @@ const routes = {
     ...studentRoutes,
     ...mentorRoutes,
     ...courseRoutes,
+    ...classroomRoutes,
+    ...ratingRoutes,
+    ...registrationRoutes,
+    ...reportRoutes,
+    ...companyRoutes,
+    ...tagRoutes,
+    ...sliderRoutes,
+    ...deviceRoutes,
     // keep this at last
     notFound: {
         component: PageNotFound,

@@ -350,6 +350,11 @@ const apiConfig = {
             headers: baseHeader,
             permissionCode: "STU_D",
         },
+        autoComplete: {
+            baseURL: `${apiUrl}v1/student/auto-complete`,
+            method: "GET",
+            headers: baseHeader,
+        },
     },
     mentor: {
         getList: {
@@ -419,7 +424,339 @@ const apiConfig = {
             method: "GET",
             headers: baseHeader,
         }
-    }
+    },
+    syllabus: {
+        getList: {
+            baseURL: `${apiUrl}v1/syllabus/list`,
+            method: "GET",
+            headers: baseHeader,
+            permissionCode: "SYL_L",
+        },
+        getById: {
+            baseURL: `${apiUrl}v1/syllabus/get/:id`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: "SYL_V",
+        },
+        create: {
+            baseURL: `${apiUrl}v1/syllabus/create`,
+            method: 'POST',
+            headers: baseHeader,
+            permissionCode: "SYL_C",
+        },
+        update: {
+            baseURL: `${apiUrl}v1/syllabus/update`,
+            method: 'PUT',
+            headers: baseHeader,
+            permissionCode: "SYL_U",
+        },
+        delete: {
+            baseURL: `${apiUrl}v1/syllabus/delete/:id`,
+            method: 'DELETE',
+            headers: baseHeader,
+            permissionCode: "SYL_D",
+        },
+        updateOrdering: {
+            baseURL: `${apiUrl}v1/syllabus/update-ordering`,
+            method: 'PUT',
+            headers: baseHeader,
+            permissionCode: "SYL_U",
+        },
+    },
+
+    classRoom: {
+        getList: {
+            baseURL: `${apiUrl}v1/class-room/list`,
+            method: "GET",
+            headers: baseHeader,
+            permissionCode: "CLR_L",
+        },
+        getById: {
+            baseURL: `${apiUrl}v1/class-room/get/:id`,
+            method: "GET",
+            headers: baseHeader,
+            permissionCode: "CLR_V",
+        },
+        create: {
+            baseURL: `${apiUrl}v1/class-room/create`,
+            method: "POST",
+            headers: baseHeader,
+            permissionCode: "CLR_C",
+        },
+        update: {
+            baseURL: `${apiUrl}v1/class-room/update`,
+            method: "PUT",
+            headers: baseHeader,
+            permissionCode: "CLR_U",
+        },
+        delete: {
+            baseURL: `${apiUrl}v1/class-room/delete/:id`,
+            method: "DELETE",
+            headers: baseHeader,
+            permissionCode: "CLR_D",
+        },
+        changeState: {
+            baseURL: `${apiUrl}v1/class-room/change-state`,
+            method: "PUT",
+            headers: baseHeader,
+            permissionCode: "CLR_U",
+        },
+    },
+
+    classroomStudent: {
+        getList: {
+            baseURL: `${apiUrl}v1/classroom-student/list`,
+            method: "GET",
+            headers: baseHeader,
+            permissionCode: "CLS_L",
+        },
+        registerFromRegistration: {
+            baseURL: `${apiUrl}v1/classroom-student/register-from-registration`,
+            method: "POST",
+            headers: baseHeader,
+            permissionCode: "CLS_C",
+        },
+        registerByStudent: {
+            baseURL: `${apiUrl}v1/classroom-student/register-by-student`,
+            method: "POST",
+            headers: baseHeader,
+            permissionCode: "CLS_C",
+        },
+        changeState: {
+            baseURL: `${apiUrl}v1/classroom-student/change-state`,
+            method: "PUT",
+            headers: baseHeader,
+            permissionCode: "CLS_U",
+        },
+        delete: {
+            baseURL: `${apiUrl}v1/classroom-student/delete/:id`,
+            method: "DELETE",
+            headers: baseHeader,
+            permissionCode: "CLS_D",
+        },
+    },
+    rating: {
+        getList: {
+            baseURL: `${apiUrl}v1/rating/list`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'RAT_L',
+        },
+        getById: {
+            baseURL: `${apiUrl}v1/rating/get/:id`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'RAT_V',
+        },
+        create: {
+            baseURL: `${apiUrl}v1/rating/create`,
+            method: 'POST',
+            headers: baseHeader,
+            permissionCode: 'RAT_C',
+        },
+        update: {
+            baseURL: `${apiUrl}v1/rating/update`,
+            method: 'PUT',
+            headers: baseHeader,
+            permissionCode: 'RAT_U',
+        },
+        delete: {
+            baseURL: `${apiUrl}v1/rating/delete/:id`,
+            method: 'DELETE',
+            headers: baseHeader,
+            permissionCode: 'RAT_D',
+        },
+    },
+    registration: {
+        getList: {
+            baseURL: `${apiUrl}v1/registration/list`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'REG_L',
+        },
+        getById: {
+            baseURL: `${apiUrl}v1/registration/get/:id`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'REG_V',
+        },
+        delete: {
+            baseURL: `${apiUrl}v1/registration/delete/:id`,
+            method: 'DELETE',
+            headers: baseHeader,
+            permissionCode: 'REG_D',
+        },
+        create: {
+            baseURL: `${apiUrl}v1/registration/create`,
+            method: 'POST',
+            headers: baseHeader,
+            permissionCode: 'REG_L',
+        },
+
+    },
+
+    report: {
+        topStudent: {
+            baseURL: `${apiUrl}v1/report/top-student`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'RPT_L',
+        },
+        topCourse: {
+            baseURL: `${apiUrl}v1/report/top-course`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'RPT_L',
+        },
+        exportExcelTopStudent: {
+            baseURL: `${apiUrl}v1/report/export-excel-top-student`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'RPT_L',
+        },
+        exportExcelTopCourse: {
+            baseURL: `${apiUrl}v1/report/export-excel-top-course`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'RPT_L',
+        },
+    },
+
+    company: {
+        getList: {
+            baseURL: `${apiUrl}v1/company/list`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'COM_L',
+        },
+        getById: {
+            baseURL: `${apiUrl}v1/company/get/:id`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'COM_V',
+        },
+        create: {
+            baseURL: `${apiUrl}v1/company/create`,
+            method: 'POST',
+            headers: baseHeader,
+            permissionCode: 'COM_C',
+        },
+        update: {
+            baseURL: `${apiUrl}v1/company/update`,
+            method: 'PUT',
+            headers: baseHeader,
+            permissionCode: 'COM_U',
+        },
+        delete: {
+            baseURL: `${apiUrl}v1/company/delete/:id`,
+            method: 'DELETE',
+            headers: baseHeader,
+            permissionCode: 'COM_D',
+        },
+    },
+    tag: {
+        getList: {
+            baseURL: `${apiUrl}v1/tags/list`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'TAG_L',
+        },
+        getById: {
+            baseURL: `${apiUrl}v1/tags/get/:id`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'TAG_V',
+        },
+        create: {
+            baseURL: `${apiUrl}v1/tags/create`,
+            method: 'POST',
+            headers: baseHeader,
+            permissionCode: 'TAG_C',
+        },
+        update: {
+            baseURL: `${apiUrl}v1/tags/update`,
+            method: 'PUT',
+            headers: baseHeader,
+            permissionCode: 'TAG_U',
+        },
+        delete: {
+            baseURL: `${apiUrl}v1/tags/delete/:id`,
+            method: 'DELETE',
+            headers: baseHeader,
+            permissionCode: 'TAG_D',
+        },
+    },
+    slider: {
+        getList: {
+            baseURL: `${apiUrl}v1/category/list`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'CAT_L',
+        },
+        getById: {
+            baseURL: `${apiUrl}v1/category/get/:id`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'CAT_V',
+        },
+        create: {
+            baseURL: `${apiUrl}v1/category/create`,
+            method: 'POST',
+            headers: baseHeader,
+            permissionCode: 'CAT_C',
+        },
+        update: {
+            baseURL: `${apiUrl}v1/category/update`,
+            method: 'PUT',
+            headers: baseHeader,
+            permissionCode: 'CAT_U',
+        },
+        delete: {
+            baseURL: `${apiUrl}v1/category/delete/:id`,
+            method: 'DELETE',
+            headers: baseHeader,
+            permissionCode: 'CAT_D',
+        },
+        updateOrdering: {
+            baseURL: `${apiUrl}v1/category/update-ordering`,
+            method: 'PUT',
+            headers: baseHeader,
+            permissionCode: 'CAT_U',
+        },
+    },
+    device: {
+        getList: {
+            baseURL: `${apiUrl}v1/category/list`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'CAT_L',
+        },
+        getById: {
+            baseURL: `${apiUrl}v1/category/get/:id`,
+            method: 'GET',
+            headers: baseHeader,
+            permissionCode: 'CAT_V',
+        },
+        create: {
+            baseURL: `${apiUrl}v1/category/create`,
+            method: 'POST',
+            headers: baseHeader,
+            permissionCode: 'CAT_C',
+        },
+        update: {
+            baseURL: `${apiUrl}v1/category/update`,
+            method: 'PUT',
+            headers: baseHeader,
+            permissionCode: 'CAT_U',
+        },
+        delete: {
+            baseURL: `${apiUrl}v1/category/delete/:id`,
+            method: 'DELETE',
+            headers: baseHeader,
+            permissionCode: 'CAT_D',
+        },
+    },
+
 };
 
 export default apiConfig;

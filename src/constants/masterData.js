@@ -31,6 +31,7 @@ import {
     KIND_ADMIN,
     KIND_CUSTOMER,
     LECTURE_SECTION,
+    LECTURE_LESSION,
     LECTURE_VIDEO,
     LECTURE_STATE_INIT,
     LECTURE_STATE_PROCESSED,
@@ -394,3 +395,41 @@ export const FILE_KIND = {
     FILE_KIND_DEFAULT,
     FILE_KIND_AVATAR,
 };
+
+export const CLASSROOM_STATE_CREATED = 0;
+export const CLASSROOM_STATE_LEARNING = 1;
+export const CLASSROOM_STATE_FINISHED = 2;
+export const CLASSROOM_STATE_CANCELED = 3;
+
+export const stateClassroomOptions = [
+    { value: CLASSROOM_STATE_CREATED, label: 'Đang tạo', color: 'orange' },
+    { value: CLASSROOM_STATE_LEARNING, label: 'Đang học', color: 'green' },
+    { value: CLASSROOM_STATE_FINISHED, label: 'Đã kết thúc', color: 'blue' },
+    { value: CLASSROOM_STATE_CANCELED, label: 'Đã hủy', color: 'red' },
+];
+
+
+export const CLASSROOM_STUDENT_STATE_PENDING = 0;
+export const CLASSROOM_STUDENT_STATE_APPROVE = 1;
+export const CLASSROOM_STUDENT_STATE_REJECT = 2;
+
+export const classroomStudentStateOptions = [
+    { value: CLASSROOM_STUDENT_STATE_PENDING, label: 'Chờ duyệt', color: 'warning' },
+    { value: CLASSROOM_STUDENT_STATE_APPROVE, label: 'Đã duyệt', color: 'success' },
+    { value: CLASSROOM_STUDENT_STATE_REJECT, label: 'Từ chối', color: 'error' },
+];
+
+export const syllabusKindOptions = [
+    { value: LECTURE_SECTION, label: lectureKindMessage.chapter },
+    { value: LECTURE_LESSION, label: lectureKindMessage.lesson },
+];
+
+export const DEVICE_KIND_DEVICE = 1;
+export const DEVICE_KIND_BRAND = 2;
+
+export const TYPE_ACTION_URL = 1;
+export const TYPE_ACTION_CONTACT_FORM = 2;
+export const typeActionOptions = [
+    { value: TYPE_ACTION_URL, label: 'Mở đường dẫn' },
+    { value: TYPE_ACTION_CONTACT_FORM, label: 'Biểu mẫu liên hệ' },
+];

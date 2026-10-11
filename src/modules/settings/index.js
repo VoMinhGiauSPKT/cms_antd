@@ -4,17 +4,18 @@ import { Card, Tabs } from 'antd';
 import React, { useState } from 'react';
 import { defineMessages } from 'react-intl';
 import GeneralSettingPage from './GeneralSetting';
+import PageConfigPage from './PageConfig';
 import { settingGroups } from '@constants/masterData';
 import routes from '@routes';
 
 const message = defineMessages({
     generalSetting: 'Cài đặt',
-    pageSetting: 'Cài đặt trang',
-    generalRevenue: 'Lợi nhuận chia sẻ',
-    trainingConfig: 'Cấu hình đào tạo',
-    landingConfig: 'Cấu hình trang landing',
-    careerConfig: 'Lĩnh vực',
-    workingTime: 'Thời gian làm việc',
+    pageSetting: 'Page config',
+    // generalRevenue: 'Lợi nhuận chia sẻ',
+    // trainingConfig: 'Cấu hình đào tạo',
+    // landingConfig: 'Cấu hình trang landing',
+    // careerConfig: 'Lĩnh vực',
+    // workingTime: 'Thời gian làm việc',
 });
 
 const SettingPage = () => {
@@ -22,7 +23,7 @@ const SettingPage = () => {
     const [activeTab, setActiveTab] = useState(
         localStorage.getItem(routes.settingsPage.keyActiveTab)
             ? localStorage.getItem(routes.settingsPage.keyActiveTab)
-            : settingGroups.BBB,
+            : settingGroups.PAGE,
     );
     return (
         <PageWrapper routes={[{ breadcrumbName: translate.formatMessage(message.generalSetting) }]}>
@@ -35,6 +36,13 @@ const SettingPage = () => {
                     }}
                     activeKey={activeTab}
                     items={[
+                        {
+                            key: settingGroups.PAGE,
+                            label: 'Page config',
+                            children: activeTab === settingGroups.PAGE && (
+                                <PageConfigPage />
+                            ),
+                        },
                         {
                             key: settingGroups.BBB,
                             label: 'Cài đặt BBB',

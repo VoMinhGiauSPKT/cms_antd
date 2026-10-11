@@ -1,10 +1,12 @@
 import apiConfig from "@constants/apiConfig";
 import CourseListPage from ".";
 import CourseSavePage from "./CourseSavePage";
+import SyllabusListPage from "./syllabus";
 
 const paths = {
     courseListPage: "/courses",
     courseSavePage: "/courses/:id",
+    syllabusListPage: "/courses/:courseId/syllabus",
 }
 
 export default {
@@ -16,7 +18,7 @@ export default {
         pageOptions: {
             kind: 1,
             objectName: "Khóa học",
-            renderBreadcrumbs: (messages, t, title, options = {}) => {
+            renderBreadcrumbs: (commonMessage, translate, title) => {
                 return [{ breadcrumbName: "Khóa học" }];
             },
         },
@@ -29,10 +31,26 @@ export default {
         pageOptions: {
             objectName: "Khóa học",
             listPageUrl: paths.courseListPage,
-            renderBreadcrumbs: (messages, t, title, options = {}) => {
+            renderBreadcrumbs: (commonMessage, translate, title) => {
                 return [
                     { breadcrumbName: "Khóa học", path: paths.courseListPage },
                     { breadcrumbName: title }
+                ];
+            }
+        }
+    },
+
+    syllabusListPage: {
+        path: paths.syllabusListPage,
+        component: SyllabusListPage,
+        auth: true,
+        pageOptions: {
+            objectName: "Giáo trình",
+            listPageUrl: paths.courseListPage,
+            renderBreadcrumbs: (commonMessage, translate, title) => {
+                return [
+                    { breadcrumbName: "Khóa học", path: paths.courseListPage },
+                    { breadcrumbName: "Giáo trình" },
                 ];
             }
         }
